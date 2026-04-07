@@ -4,6 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SlotGames — 100% бонус + 100 фриспинов</title>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108438280', 'ym');
+    ym(108438280, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/108438280" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
 <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -51,8 +65,6 @@
     padding: 16px 16px 20px;
     position: relative; z-index: 1;
   }
-
-  /* ЛОГОТИП */
   .logo-wrap {
     display: flex; align-items: center;
     justify-content: center;
@@ -71,8 +83,6 @@
     font-size: 24px; color: var(--white); letter-spacing: 2px;
   }
   .logo-text span { color: var(--blue-light); }
-
-  /* HERO */
   .hero-card {
     background: linear-gradient(135deg, #111827 0%, #0F1E3D 100%);
     border: 1px solid rgba(26,86,219,0.3);
@@ -96,7 +106,6 @@
     background: conic-gradient(from 0deg, transparent 0deg, rgba(26,86,219,0.08) 60deg, transparent 120deg);
     animation: rotate 10s linear infinite;
   }
-
   .badge {
     display: inline-flex; align-items: center; gap: 6px;
     background: rgba(26,86,219,0.2);
@@ -105,10 +114,8 @@
     font-size: 11px; font-weight: 700;
     letter-spacing: 2px; text-transform: uppercase;
     padding: 5px 14px; border-radius: 100px;
-    margin-bottom: 12px;
-    position: relative; z-index: 1;
+    margin-bottom: 12px; position: relative; z-index: 1;
   }
-
   .bonus-amount {
     font-family: 'Russo One', sans-serif;
     font-size: 60px; color: var(--gold); line-height: 1;
@@ -116,38 +123,29 @@
     position: relative; z-index: 1;
     animation: pulse 2s ease-in-out infinite;
   }
-
   .bonus-label {
     font-size: 15px; color: var(--muted);
-    margin: 4px 0 14px;
-    position: relative; z-index: 1;
+    margin: 4px 0 14px; position: relative; z-index: 1;
   }
-
   .freespins-row {
     display: flex; align-items: center;
     justify-content: center; gap: 12px;
     position: relative; z-index: 1;
   }
-
   .plus-sign {
     font-family: 'Russo One', sans-serif;
     font-size: 24px; color: var(--blue-light);
   }
-
   .fs-block {
     background: rgba(26,86,219,0.2);
     border: 1px solid rgba(26,86,219,0.4);
     border-radius: 14px; padding: 8px 18px;
   }
-
   .fs-num {
     font-family: 'Russo One', sans-serif;
     font-size: 28px; color: #fff;
   }
-
   .fs-text { font-size: 12px; color: var(--muted); margin-top: 2px; }
-
-  /* ТАЙМЕР */
   .timer-section {
     background: var(--card);
     border: 1px solid rgba(245,158,11,0.2);
@@ -185,8 +183,6 @@
     font-size: 20px; color: var(--blue-light);
     animation: blink 1s step-end infinite;
   }
-
-  /* ШАГИ */
   .steps {
     display: flex; flex-direction: column;
     gap: 8px; margin: 12px 0;
@@ -208,8 +204,6 @@
   }
   .step-text { font-size: 14px; color: var(--white); line-height: 1.4; }
   .step-text strong { color: var(--gold-light); }
-
-  /* СЧЁТЧИК */
   .counter-bar {
     background: var(--card);
     border: 1px solid rgba(26,86,219,0.15);
@@ -222,18 +216,14 @@
     width: 8px; height: 8px;
     background: #4ADE80; border-radius: 50%;
     box-shadow: 0 0 8px #4ADE80;
-    animation: pulseGlow 1.5s ease-in-out infinite;
-    flex-shrink: 0;
+    animation: pulseGlow 1.5s ease-in-out infinite; flex-shrink: 0;
   }
   .counter-text { font-size: 13px; color: var(--muted); }
   .counter-text strong { color: var(--white); }
-
   .disclaimer {
     text-align: center; font-size: 11px;
     color: rgba(100,116,139,0.4); line-height: 1.5;
   }
-
-  /* ФИКСИРОВАННАЯ КНОПКА */
   .cta-fixed {
     position: fixed;
     bottom: 0; left: 0; right: 0;
@@ -267,7 +257,6 @@
     text-align: center; font-size: 11px;
     color: var(--muted); margin-top: 6px;
   }
-
   @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
   @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
   @keyframes pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.04); } }
@@ -278,13 +267,11 @@
 </style>
 </head>
 <body>
-
 <div class="container">
   <div class="logo-wrap">
     <div class="logo-icon">🎰</div>
     <div class="logo-text">SLOT<span>GAMES</span></div>
   </div>
-
   <div class="hero-card">
     <div class="badge">🔥 Приветственный бонус</div>
     <div class="bonus-amount">100%</div>
@@ -297,7 +284,6 @@
       </div>
     </div>
   </div>
-
   <div class="timer-section">
     <div class="timer-label">⏰ Предложение истекает через</div>
     <div class="timer-blocks">
@@ -317,7 +303,6 @@
       </div>
     </div>
   </div>
-
   <div class="steps">
     <div class="step">
       <div class="step-num">1</div>
@@ -332,12 +317,10 @@
       <div class="step-text"><strong>Получи 100% бонус</strong> и 100 фриспинов мгновенно</div>
     </div>
   </div>
-
   <div class="counter-bar">
     <div class="counter-dot"></div>
     <div class="counter-text"><strong id="online-count">1 243</strong> игроков забрали бонус сегодня</div>
   </div>
-
   <div class="disclaimer">
     Игра на деньги доступна лицам старше 18 лет.<br>
     Играйте ответственно. Бонус действует согласно правилам казино.
@@ -345,7 +328,7 @@
 </div>
 
 <div class="cta-fixed">
-  <a href="https://luckychoice.xyz/click?o=1510&a=25099&link_id=8053&sub1=prelend_slot" class="cta-btn">
+  <a href="https://luckychoice.xyz/click?o=1510&a=25099&link_id=8053&sub1=prelend_slot" class="cta-btn" onclick="ym(108438280,'reachGoal','click_bonus')">
     🎰 ПОЛУЧИТЬ БОНУС
   </a>
   <div class="cta-sub">Бесплатно · Мгновенное зачисление · 18+</div>
@@ -360,10 +343,7 @@
   const endTime = getEndTime('slot_timer_v3', 1*3600000 + 47*60000 + 33000);
   function updateTimer() {
     const diff = endTime - Date.now();
-    if (diff <= 0) {
-      ['hours','minutes','seconds'].forEach(id => document.getElementById(id).textContent = '00');
-      return;
-    }
+    if (diff <= 0) { ['hours','minutes','seconds'].forEach(id => document.getElementById(id).textContent = '00'); return; }
     document.getElementById('hours').textContent = String(Math.floor(diff/3600000)).padStart(2,'0');
     document.getElementById('minutes').textContent = String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
     document.getElementById('seconds').textContent = String(Math.floor((diff%60000)/1000)).padStart(2,'0');
