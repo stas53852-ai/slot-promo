@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SlotGames — 100% бонус + 100 фриспинов</title>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Exo+2:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark: #080C18;
+    --card: #111827;
+    --blue: #1A56DB;
+    --blue-light: #3B82F6;
+    --cyan: #06B6D4;
+    --white: #F8FAFC;
+    --muted: #64748B;
+    --gold: #F59E0B;
+    --gold-light: #FCD34D;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--dark);
+    color: var(--white);
+    font-family: 'Exo 2', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding-bottom: 100px;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      linear-gradient(rgba(26,86,219,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26,86,219,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none; z-index: 0;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: -100px; right: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(26,86,219,0.15) 0%, transparent 70%);
+    pointer-events: none; z-index: 0;
+  }
+  .container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 16px 16px 20px;
+    position: relative; z-index: 1;
+  }
+  .logo-wrap {
+    display: flex; align-items: center;
+    justify-content: center;
+    padding: 16px 0 4px; gap: 10px;
+    animation: fadeDown 0.6s ease both;
+  }
+  .logo-icon {
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, var(--blue), var(--cyan));
+    border-radius: 10px;
+    display: flex; align-items: center;
+    justify-content: center; font-size: 20px;
+  }
+  .logo-text {
+    font-family: 'Russo One', sans-serif;
+    font-size: 24px; color: var(--white); letter-spacing: 2px;
+  }
+  .logo-text span { color: var(--blue-light); }
+  .hero-card {
+    background: linear-gradient(135deg, #111827 0%, #0F1E3D 100%);
+    border: 1px solid rgba(26,86,219,0.3);
+    border-radius: 24px; padding: 24px 20px;
+    margin: 14px 0; text-align: center;
+    position: relative; overflow: hidden;
+    animation: fadeUp 0.7s ease 0.1s both;
+    box-shadow: 0 20px 60px rgba(26,86,219,0.2), inset 0 1px 0 rgba(255,255,255,0.05);
+  }
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--blue-light), var(--cyan), transparent);
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(26,86,219,0.2);
+    border: 1px solid rgba(26,86,219,0.4);
+    color: var(--blue-light);
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 100px; margin-bottom: 16px;
+  }
+  .slot-icons {
+    display: flex; justify-content: center;
+    gap: 8px; margin-bottom: 14px;
+  }
+  .slot-reel {
+    background: linear-gradient(180deg, #1A2744, #0F1830);
+    border: 1px solid rgba(26,86,219,0.3);
+    border-radius: 10px;
+    width: 48px; height: 48px;
+    display: flex; align-items: center;
+    justify-content: center; font-size: 26px;
+  }
+  .bonus-row {
+    display: flex; align-items: center;
+    justify-content: center; gap: 16px;
+  }
+  .bonus-block { text-align: center; }
+  .bonus-num {
+    font-family: 'Russo One', sans-serif;
+    font-size: 48px; color: var(--gold); line-height: 1;
+    text-shadow: 0 0 30px rgba(245,158,11,0.5);
+  }
+  .bonus-unit { font-size: 13px; color: var(--muted); margin-top: 2px; }
+  .divider { width: 1px; height: 56px; background: rgba(26,86,219,0.3); }
+  .timer-section {
+    background: var(--card);
+    border: 1px solid rgba(245,158,11,0.2);
+    border-radius: 18px; padding: 14px;
+    margin: 12px 0; text-align: center;
+    animation: fadeUp 0.7s ease 0.2s both;
+    position: relative; overflow: hidden;
+  }
+  .timer-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(245,158,11,0.4), transparent);
+  }
+  .timer-label {
+    font-size: 11px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;
+  }
+  .timer-blocks {
+    display: flex; justify-content: center;
+    gap: 6px; align-items: center;
+  }
+  .timer-block {
+    background: linear-gradient(135deg, rgba(26,86,219,0.3), rgba(6,182,212,0.1));
+    border: 1px solid rgba(26,86,219,0.3);
+    border-radius: 10px; padding: 8px 12px; min-width: 54px;
+  }
+  .timer-num {
+    font-family: 'Russo One', sans-serif;
+    font-size: 26px; color: var(--gold); line-height: 1;
+  }
+  .timer-unit { font-size: 10px; color: var(--muted); margin-top: 2px; }
+  .timer-sep {
+    font-family: 'Russo One', sans-serif;
+    font-size: 20px; color: var(--blue-light);
+    animation: blink 1s step-end infinite;
+  }
+  .steps {
+    display: flex; flex-direction: column;
+    gap: 8px; margin: 12px 0;
+    animation: fadeUp 0.7s ease 0.3s both;
+  }
+  .step {
+    background: var(--card);
+    border: 1px solid rgba(26,86,219,0.15);
+    border-radius: 12px; padding: 12px 14px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .step-num {
+    width: 30px; height: 30px;
+    background: linear-gradient(135deg, var(--blue), var(--cyan));
+    border-radius: 50%;
+    display: flex; align-items: center;
+    justify-content: center;
+    font-family: 'Russo One', sans-serif;
+    font-size: 13px; color: #fff; flex-shrink: 0;
+  }
+  .step-text { font-size: 14px; color: var(--white); line-height: 1.4; }
+  .step-text strong { color: var(--gold-light); }
+  .counter-bar {
+    background: var(--card);
+    border: 1px solid rgba(26,86,219,0.15);
+    border-radius: 12px; padding: 12px 14px;
+    display: flex; align-items: center; gap: 10px;
+    margin: 0 0 12px;
+    animation: fadeUp 0.7s ease 0.4s both;
+  }
+  .counter-dot {
+    width: 8px; height: 8px;
+    background: #4ADE80; border-radius: 50%;
+    box-shadow: 0 0 8px #4ADE80;
+    animation: pulseGlow 1.5s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  .counter-text { font-size: 13px; color: var(--muted); }
+  .counter-text strong { color: var(--white); }
+  .disclaimer {
+    text-align: center; font-size: 11px;
+    color: rgba(100,116,139,0.4); line-height: 1.5;
+  }
+
+  /* ФИКСИРОВАННАЯ КНОПКА */
+  .cta-fixed {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 12px 16px 16px;
+    background: linear-gradient(to top, #080C18 70%, transparent);
+  }
+  .cta-btn {
+    display: block;
+    max-width: 480px; margin: 0 auto;
+    width: 100%;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--cyan) 100%);
+    color: #fff;
+    font-family: 'Russo One', sans-serif;
+    font-size: 16px; text-decoration: none;
+    text-align: center; padding: 18px;
+    border-radius: 16px; border: none; cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 8px 30px rgba(26,86,219,0.4);
+    position: relative; overflow: hidden; letter-spacing: 1px;
+  }
+  .cta-btn::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 60%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: shimmer 2.5s ease infinite;
+  }
+  .cta-btn:active { transform: scale(0.98); }
+  .cta-sub {
+    text-align: center; font-size: 11px;
+    color: var(--muted); margin-top: 6px;
+  }
+
+  @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes pulseGlow { 0%,100% { box-shadow:0 0 8px #4ADE80; } 50% { box-shadow:0 0 16px #4ADE80; } }
+  @keyframes shimmer { 0% { left:-100%; } 100% { left:200%; } }
+  @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="logo-wrap">
+    <div class="logo-icon">🎰</div>
+    <div class="logo-text">SLOT<span>GAMES</span></div>
+  </div>
+  <div class="hero-card">
+    <div class="badge">🔥 Приветственный бонус</div>
+    <div class="slot-icons">
+      <div class="slot-reel">7️⃣</div>
+      <div class="slot-reel">🍒</div>
+      <div class="slot-reel">7️⃣</div>
+    </div>
+    <div class="bonus-row">
+      <div class="bonus-block">
+        <div class="bonus-num">100%</div>
+        <div class="bonus-unit">на депозит</div>
+      </div>
+      <div class="divider"></div>
+      <div class="bonus-block">
+        <div class="bonus-num">100</div>
+        <div class="bonus-unit">фриспинов</div>
+      </div>
+    </div>
+  </div>
+  <div class="timer-section">
+    <div class="timer-label">⏰ Предложение истекает через</div>
+    <div class="timer-blocks">
+      <div class="timer-block">
+        <div class="timer-num" id="hours">01</div>
+        <div class="timer-unit">часов</div>
+      </div>
+      <div class="timer-sep">:</div>
+      <div class="timer-block">
+        <div class="timer-num" id="minutes">47</div>
+        <div class="timer-unit">минут</div>
+      </div>
+      <div class="timer-sep">:</div>
+      <div class="timer-block">
+        <div class="timer-num" id="seconds">33</div>
+        <div class="timer-unit">секунд</div>
+      </div>
+    </div>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text"><strong>Зарегистрируйся</strong> — займёт меньше минуты</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text"><strong>Сделай первый депозит</strong> — любая сумма</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text"><strong>Получи 100% бонус</strong> и 100 фриспинов мгновенно</div>
+    </div>
+  </div>
+  <div class="counter-bar">
+    <div class="counter-dot"></div>
+    <div class="counter-text"><strong id="online-count">1 243</strong> игроков забрали бонус сегодня</div>
+  </div>
+  <div class="disclaimer">
+    Игра на деньги доступна лицам старше 18 лет.<br>
+    Играйте ответственно. Бонус действует согласно правилам казино.
+  </div>
+</div>
+
+<div class="cta-fixed">
+  <a href="https://luckychoice.xyz/click?o=1510&a=25099&link_id=8053&sub1=prelend_slot" class="cta-btn">
+    🎰 ПОЛУЧИТЬ БОНУС
+  </a>
+  <div class="cta-sub">Бесплатно · Мгновенное зачисление · 18+</div>
+</div>
+
+<script>
+  function getEndTime(key, ms) {
+    let end = localStorage.getItem(key);
+    if (!end) { end = Date.now() + ms; localStorage.setItem(key, end); }
+    return parseInt(end);
+  }
+  const endTime = getEndTime('slot_timer_v2', 1*3600000 + 47*60000 + 33000);
+  function updateTimer() {
+    const diff = endTime - Date.now();
+    if (diff <= 0) {
+      ['hours','minutes','seconds'].forEach(id => document.getElementById(id).textContent = '00');
+      return;
+    }
+    document.getElementById('hours').textContent = String(Math.floor(diff/3600000)).padStart(2,'0');
+    document.getElementById('minutes').textContent = String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+    document.getElementById('seconds').textContent = String(Math.floor((diff%60000)/1000)).padStart(2,'0');
+  }
+  setInterval(updateTimer, 1000);
+  updateTimer();
+  let count = 1243;
+  setInterval(() => {
+    count += Math.floor(Math.random()*3)-1;
+    count = Math.max(1100, Math.min(1400, count));
+    document.getElementById('online-count').textContent = count.toLocaleString('ru');
+  }, 5000);
+</script>
+</body>
+</html>
