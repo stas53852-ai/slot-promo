@@ -39,9 +39,10 @@
   body::after {
     content: '';
     position: fixed;
-    bottom: -100px; right: -100px;
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(26,86,219,0.15) 0%, transparent 70%);
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, rgba(26,86,219,0.2) 0%, transparent 70%);
     pointer-events: none; z-index: 0;
   }
   .container {
@@ -50,6 +51,8 @@
     padding: 16px 16px 20px;
     position: relative; z-index: 1;
   }
+
+  /* ЛОГОТИП */
   .logo-wrap {
     display: flex; align-items: center;
     justify-content: center;
@@ -68,6 +71,8 @@
     font-size: 24px; color: var(--white); letter-spacing: 2px;
   }
   .logo-text span { color: var(--blue-light); }
+
+  /* HERO */
   .hero-card {
     background: linear-gradient(135deg, #111827 0%, #0F1E3D 100%);
     border: 1px solid rgba(26,86,219,0.3);
@@ -80,10 +85,18 @@
   .hero-card::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
+    top: 0; left: 0; right: 0; height: 2px;
     background: linear-gradient(90deg, transparent, var(--blue-light), var(--cyan), transparent);
   }
+  .hero-card::after {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: conic-gradient(from 0deg, transparent 0deg, rgba(26,86,219,0.08) 60deg, transparent 120deg);
+    animation: rotate 10s linear infinite;
+  }
+
   .badge {
     display: inline-flex; align-items: center; gap: 6px;
     background: rgba(26,86,219,0.2);
@@ -91,32 +104,50 @@
     color: var(--blue-light);
     font-size: 11px; font-weight: 700;
     letter-spacing: 2px; text-transform: uppercase;
-    padding: 5px 14px; border-radius: 100px; margin-bottom: 16px;
+    padding: 5px 14px; border-radius: 100px;
+    margin-bottom: 12px;
+    position: relative; z-index: 1;
   }
-  .slot-icons {
-    display: flex; justify-content: center;
-    gap: 8px; margin-bottom: 14px;
-  }
-  .slot-reel {
-    background: linear-gradient(180deg, #1A2744, #0F1830);
-    border: 1px solid rgba(26,86,219,0.3);
-    border-radius: 10px;
-    width: 48px; height: 48px;
-    display: flex; align-items: center;
-    justify-content: center; font-size: 26px;
-  }
-  .bonus-row {
-    display: flex; align-items: center;
-    justify-content: center; gap: 16px;
-  }
-  .bonus-block { text-align: center; }
-  .bonus-num {
+
+  .bonus-amount {
     font-family: 'Russo One', sans-serif;
-    font-size: 48px; color: var(--gold); line-height: 1;
-    text-shadow: 0 0 30px rgba(245,158,11,0.5);
+    font-size: 60px; color: var(--gold); line-height: 1;
+    text-shadow: 0 0 40px rgba(245,158,11,0.5);
+    position: relative; z-index: 1;
+    animation: pulse 2s ease-in-out infinite;
   }
-  .bonus-unit { font-size: 13px; color: var(--muted); margin-top: 2px; }
-  .divider { width: 1px; height: 56px; background: rgba(26,86,219,0.3); }
+
+  .bonus-label {
+    font-size: 15px; color: var(--muted);
+    margin: 4px 0 14px;
+    position: relative; z-index: 1;
+  }
+
+  .freespins-row {
+    display: flex; align-items: center;
+    justify-content: center; gap: 12px;
+    position: relative; z-index: 1;
+  }
+
+  .plus-sign {
+    font-family: 'Russo One', sans-serif;
+    font-size: 24px; color: var(--blue-light);
+  }
+
+  .fs-block {
+    background: rgba(26,86,219,0.2);
+    border: 1px solid rgba(26,86,219,0.4);
+    border-radius: 14px; padding: 8px 18px;
+  }
+
+  .fs-num {
+    font-family: 'Russo One', sans-serif;
+    font-size: 28px; color: #fff;
+  }
+
+  .fs-text { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  /* ТАЙМЕР */
   .timer-section {
     background: var(--card);
     border: 1px solid rgba(245,158,11,0.2);
@@ -154,6 +185,8 @@
     font-size: 20px; color: var(--blue-light);
     animation: blink 1s step-end infinite;
   }
+
+  /* ШАГИ */
   .steps {
     display: flex; flex-direction: column;
     gap: 8px; margin: 12px 0;
@@ -169,13 +202,14 @@
     width: 30px; height: 30px;
     background: linear-gradient(135deg, var(--blue), var(--cyan));
     border-radius: 50%;
-    display: flex; align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     font-family: 'Russo One', sans-serif;
     font-size: 13px; color: #fff; flex-shrink: 0;
   }
   .step-text { font-size: 14px; color: var(--white); line-height: 1.4; }
   .step-text strong { color: var(--gold-light); }
+
+  /* СЧЁТЧИК */
   .counter-bar {
     background: var(--card);
     border: 1px solid rgba(26,86,219,0.15);
@@ -193,6 +227,7 @@
   }
   .counter-text { font-size: 13px; color: var(--muted); }
   .counter-text strong { color: var(--white); }
+
   .disclaimer {
     text-align: center; font-size: 11px;
     color: rgba(100,116,139,0.4); line-height: 1.5;
@@ -208,8 +243,7 @@
   }
   .cta-btn {
     display: block;
-    max-width: 480px; margin: 0 auto;
-    width: 100%;
+    max-width: 480px; margin: 0 auto; width: 100%;
     background: linear-gradient(135deg, var(--blue) 0%, var(--cyan) 100%);
     color: #fff;
     font-family: 'Russo One', sans-serif;
@@ -236,6 +270,8 @@
 
   @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
   @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.04); } }
+  @keyframes rotate { from { transform:rotate(0deg); } to { transform:rotate(360deg); } }
   @keyframes pulseGlow { 0%,100% { box-shadow:0 0 8px #4ADE80; } 50% { box-shadow:0 0 16px #4ADE80; } }
   @keyframes shimmer { 0% { left:-100%; } 100% { left:200%; } }
   @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
@@ -248,25 +284,20 @@
     <div class="logo-icon">🎰</div>
     <div class="logo-text">SLOT<span>GAMES</span></div>
   </div>
+
   <div class="hero-card">
     <div class="badge">🔥 Приветственный бонус</div>
-    <div class="slot-icons">
-      <div class="slot-reel">7️⃣</div>
-      <div class="slot-reel">🍒</div>
-      <div class="slot-reel">7️⃣</div>
-    </div>
-    <div class="bonus-row">
-      <div class="bonus-block">
-        <div class="bonus-num">100%</div>
-        <div class="bonus-unit">на депозит</div>
-      </div>
-      <div class="divider"></div>
-      <div class="bonus-block">
-        <div class="bonus-num">100</div>
-        <div class="bonus-unit">фриспинов</div>
+    <div class="bonus-amount">100%</div>
+    <div class="bonus-label">бонус на первый депозит</div>
+    <div class="freespins-row">
+      <div class="plus-sign">+</div>
+      <div class="fs-block">
+        <div class="fs-num">100</div>
+        <div class="fs-text">фриспинов</div>
       </div>
     </div>
   </div>
+
   <div class="timer-section">
     <div class="timer-label">⏰ Предложение истекает через</div>
     <div class="timer-blocks">
@@ -286,6 +317,7 @@
       </div>
     </div>
   </div>
+
   <div class="steps">
     <div class="step">
       <div class="step-num">1</div>
@@ -300,10 +332,12 @@
       <div class="step-text"><strong>Получи 100% бонус</strong> и 100 фриспинов мгновенно</div>
     </div>
   </div>
+
   <div class="counter-bar">
     <div class="counter-dot"></div>
     <div class="counter-text"><strong id="online-count">1 243</strong> игроков забрали бонус сегодня</div>
   </div>
+
   <div class="disclaimer">
     Игра на деньги доступна лицам старше 18 лет.<br>
     Играйте ответственно. Бонус действует согласно правилам казино.
@@ -323,7 +357,7 @@
     if (!end) { end = Date.now() + ms; localStorage.setItem(key, end); }
     return parseInt(end);
   }
-  const endTime = getEndTime('slot_timer_v2', 1*3600000 + 47*60000 + 33000);
+  const endTime = getEndTime('slot_timer_v3', 1*3600000 + 47*60000 + 33000);
   function updateTimer() {
     const diff = endTime - Date.now();
     if (diff <= 0) {
